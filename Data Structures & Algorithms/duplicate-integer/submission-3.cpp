@@ -1,13 +1,9 @@
 class Solution {
 public:
     bool hasDuplicate(vector<int>& nums) {
-      unordered_set<int> seen;
-      for (vector<int>::iterator it = nums.begin(); it != nums.end();it++)
-      {
-        if (seen.count(*it))
-            return true;
-        seen.insert(*it);
-      }
-      return false;
+        std::set<int> s(nums.begin(), nums.end());
+        if (nums.size() == s.size())
+           return false;
+        return true;
     }
 };
